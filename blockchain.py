@@ -4,6 +4,7 @@ import hashlib as hl
 import json
 from mimetypes import init
 import pickle
+from tkinter.messagebox import NO
 
 # Import two functions from our hash_util.py file. Omit the ".py" in the import
 from Utils.hashUtils import hash_block
@@ -55,8 +56,8 @@ class Blockchain:
                 self.__open_transactions = json.loads(file_content[1])
                 # We need to convert  the loaded data because Transactions should use OrderedDict
                 updated_transactions = []
-                for tx in self.__open_transactions:
-                    updated_transaction = Transaction(tx['sender'], tx['recipient'], tx['amount'])
+                for tx in self.get_open_transactions():
+                    updated_transaction = Transaction(tx['sender'], tx['recipient'], tx['signature'], tx['amount'])
                     updated_transactions.append(updated_transaction)
                 self.__open_transactions = updated_transactions
         except (IOError, IndexError):
@@ -97,6 +98,9 @@ class Blockchain:
     def get_balance(self):
         """Calculate and return the balance for a participant."""
 
+        if self.hosting_node == None:
+            return None
+        
         participant = self.hosting_node
         # Fetch a list of all sent coin amounts for the given person (empty lists are returned if the person was NOT the sender)
         # This fetches sent amounts of transactions that were already included in blocks of the blockchain
@@ -154,7 +158,7 @@ class Blockchain:
     def mine_block(self):
         """Create a new block and add open transactions to it."""
         if self.hosting_node == None:
-            return False
+            return None
         # Fetch the currently last block of the blockchain
         last_block = self.__chain[-1]
         # Hash the last block (=> to be able to compare it to the stored hash value)
@@ -173,7 +177,7 @@ class Blockchain:
         
         for tx in copied_transactions:
             if not Wallet.verify_transaction(tx):
-                return False
+                return None
 
         copied_transactions.append(reward_transaction)
         block = Block(len(self.__chain), hashed_block, copied_transactions, proof)
@@ -181,7 +185,7 @@ class Blockchain:
         self.__chain.append(block)
         self.__open_transactions = []
         self.save_data()
-        return True
+        return block
 
 
 
