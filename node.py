@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 from itsdangerous import json
 
@@ -11,6 +11,13 @@ web_app = Flask(__name__)
 wallet =  Wallet()
 blockchain = Blockchain(wallet.public_key)
 CORS(web_app)
+
+
+
+@web_app.route('/', methods=['GET'])
+def get_ui():
+    return send_from_directory('User_Interface', 'node.html')
+
 
 @web_app.route('/wallet',methods=['POST'])
 def create_keys():
@@ -47,9 +54,6 @@ def load_keys():
         }
         return jsonify(response), 500
 
-@web_app.route('/', methods=['GET'])
-def get_ui():
-    return 'this works!'
 
 @web_app.route('/chain',methods=['GET'])
 def get_chain():
