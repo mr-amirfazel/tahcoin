@@ -56,8 +56,8 @@ class Blockchain:
                 self.__open_transactions = json.loads(file_content[1])
                 # We need to convert  the loaded data because Transactions should use OrderedDict
                 updated_transactions = []
-                for tx in self.__open_transactions:
-                    updated_transaction = Transaction(tx['sender'], tx['recipient'], tx['amount'])
+                for tx in self.get_open_transactions():
+                    updated_transaction = Transaction(tx['sender'], tx['recipient'], tx['signature'], tx['amount'])
                     updated_transactions.append(updated_transaction)
                 self.__open_transactions = updated_transactions
         except (IOError, IndexError):
@@ -98,6 +98,9 @@ class Blockchain:
     def get_balance(self):
         """Calculate and return the balance for a participant."""
 
+        if self.hosting_node == None:
+            return None
+        
         participant = self.hosting_node
         # Fetch a list of all sent coin amounts for the given person (empty lists are returned if the person was NOT the sender)
         # This fetches sent amounts of transactions that were already included in blocks of the blockchain
