@@ -2,8 +2,6 @@ from functools import reduce
 import hashlib as hl
 
 import json
-import re
-from urllib import response
 import requests
 
 # Import two functions from our hash_util.py file. Omit the ".py" in the import
