@@ -6,11 +6,12 @@ I made my own crypto-coin **tahcoin** , in python
 2. Increasing my knowledge about Blockchain
 
 ## clientside webpage screenshots ##
+the front end UI may change in future 
 ![wallet_and_node](https://user-images.githubusercontent.com/78591315/152568946-1d947125-c457-4715-90cd-130050652dc4.png)
 ![node_network](https://user-images.githubusercontent.com/78591315/152568988-0156ad2e-b8fc-41f5-b6a0-db19113193fc.png)
 
 # How to Use #
-## Install these librariries ##
+### Install these libraries ###
 - Cryptography
 - flask
 - flask_cors
@@ -33,3 +34,4 @@ I made my own crypto-coin **tahcoin** , in python
 
 
 this is the [Source](https://www.udemy.com/course/learn-python-by-building-a-blockchain-cryptocurrency/ "source") I used to learn python and blockchain basics from.
+to develop knowlege about the blockchain technology , this [Book](https://www.goodreads.com/book/show/36189173-blockchain) is recommended.
