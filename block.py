@@ -2,6 +2,7 @@ from time import time
 
 from Utils.printable import Printable
 
+
 class Block(Printable):
     def __init__(self, index, previous_hash, transactions, proof, timestamp=time()):
         self.index = index

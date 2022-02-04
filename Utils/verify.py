@@ -16,14 +16,13 @@ class Verify:
                 return False
         return True
 
-    @classmethod    
+    @classmethod
     def verify_transactions(cls, open_transactions, get_balance):
         """Verifies all open transactions."""
         return all([cls.verify_transaction(tx, get_balance, False) for tx in open_transactions])
 
-    
     @staticmethod
-    def verify_transaction( transaction, get_balance, check_funds = True):
+    def verify_transaction(transaction, get_balance, check_funds=True):
         """Verify a transaction by checking whether the sender has sufficient coins.
 
         Arguments:
@@ -35,7 +34,6 @@ class Verify:
         else:
             return Wallet.verify_transaction(transaction)
 
-
     @staticmethod
     def valid_proof(transactions, last_hash, proof):
         """Validate a proof of work number and see if it solves the puzzle algorithm (two leading 0s)
@@ -46,7 +44,8 @@ class Verify:
             :proof: The proof number we're testing.
         """
         # Create a string with all the hash inputs
-        guess = (str([tx.to_ordered_dict() for tx in transactions]) + str(last_hash) + str(proof)).encode()
+        guess = (str([tx.to_ordered_dict() for tx in transactions]
+                     ) + str(last_hash) + str(proof)).encode()
         # Hash the string
         # IMPORTANT: This is NOT the same hash as will be stored in the previous_hash. It's a not a block's hash. It's only used for the proof-of-work algorithm.
         guess_hash = hash_string_256(guess)
