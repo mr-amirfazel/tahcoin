@@ -14,9 +14,14 @@ CORS(web_app)
 
 
 @web_app.route('/', methods=['GET'])
-def get_ui():
+def get_node_ui():
     return send_from_directory('User_Interface', 'node.html')
 
+
+
+@web_app.route('/network', methods=['GET'])
+def get_network_ui():
+    return send_from_directory('User_Interface', 'network.html')
 
 @web_app.route('/wallet',methods=['POST'])
 def create_keys():
