@@ -1,9 +1,9 @@
-# tahcoin
-I made my own crypto-coin **tahcoin** , in python 
+# Tahcoin
+I made my own crypto-coin **tahcoin** , using python 
 
-## Aims ##
-1. Learning Python
-2. Increasing my knowledge about Blockchain
+## Aims & Goals ##
+1. Learn Python
+2. Increase my knowledge about Blockchain
 
 ## clientside webpage screenshots ##
 the front end UI may change in future 
@@ -20,7 +20,9 @@ the front end UI may change in future
 - download or clone the repository
 - run the node.py file using python and using this command:
     `python node.py -p <port_number>`
+    <br>
  **use an unoccupied  port number**
+    <br>
  **the defualt port number is 5000**
  
 # Brief Description #
@@ -31,7 +33,10 @@ the front end UI may change in future
 - to not lose the track of transactions and mined blocks every data is saved in your disc in the `wallet.txt` and `blockchain.txt` file so be sure to delete them if they're cloned with other files,so you could have your own keys 
 - ### wish you Luck ### 
 
+## Sourcs and tips ## 
 
-
-this is the [Source](https://www.udemy.com/course/learn-python-by-building-a-blockchain-cryptocurrency/ "source") I used to learn python and blockchain basics from.
-to develop knowlege about the blockchain technology , this [Book](https://www.goodreads.com/book/show/36189173-blockchain) is recommended.
+This is the [Source](https://www.udemy.com/course/learn-python-by-building-a-blockchain-cryptocurrency/ "source") I used to learn python and blockchain basics from.
+   <br>
+My notion [notes](https://www.notion.so/Learn-python-by-creating-a-blockchain-7e1ff528e1734e269b73d31330720385) preapared while majoring in this course.
+   <br>
+To develop knowlege about the blockchain technology , this [Book](https://www.goodreads.com/book/show/36189173-blockchain) is recommended.
