@@ -37,6 +37,4 @@ the front end UI may change in future
 
 This is the [Source](https://www.udemy.com/course/learn-python-by-building-a-blockchain-cryptocurrency/ "source") I used to learn python and blockchain basics from.
    <br>
-My notion [notes](https://www.notion.so/Learn-python-by-creating-a-blockchain-7e1ff528e1734e269b73d31330720385) preapared while majoring in this course.
-   <br>
 To develop knowlege about the blockchain technology , this [Book](https://www.goodreads.com/book/show/36189173-blockchain) is recommended.
