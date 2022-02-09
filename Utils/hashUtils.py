@@ -1,4 +1,4 @@
-import hashlib as hl
+import hashlib
 import json
 
 
@@ -8,7 +8,7 @@ def hash_string_256(string):
     Arguments:
         :string: The string which should be hashed.
     """
-    return hl.sha256(string).hexdigest()
+    return hashlib.sha256(string).hexdigest()
 
 
 def hash_block(block):
